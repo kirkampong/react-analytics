@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NavigationBar from 'components/Navbar/NavigationBar';
 import { Container } from 'react-bootstrap';
+//import { ResponsiveContainer } from 'components/ResponsiveContainer/ResponsiveChartContainer';
 import axios from "axios";
 import { 
   LineChart, 
@@ -82,9 +83,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Welcome to Tenet Analytics. <br></br>Select your car model below to view savings you can make my switching to an EV.
-          </p>
+          <p className='medium'>Welcome to Tenet Analytics.</p> 
+          <br></br>
+          <p >Select your car model below to view emissions savings you can make by switching to an EV today.</p>
           <Dropdown title="Select Model" id="basic-nav-dropdown">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Select Model
@@ -96,19 +97,21 @@ function App() {
               <Dropdown.Item onClick={(e)=>handleModelSelect(e)}>Toyota</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <br></br>
           <p>{selectedModel}</p>
-          <ResponsiveContainer width="90%" height={400}>
+          <br></br>
+          <p className="label">Emissions savings over a year</p>
+          <ResponsiveContainer width="100%" height={400}>
             <LineChart data={modelToChart[selectedModel]} margin={{ top: 5, right: 20, bottom: 25, left: 15 }}>
               <Line type="monotone" dataKey="s" stroke="#8884d8" />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
               <Label value="emissions savings" offset={0} position="top" />
-              <XAxis dataKey="name" label={{ value: 'Month', position: 'bottom', fill:'white' }}/>
-              <YAxis label={{ value: 'lbs CO2', angle: -90, position: 'left', fill:'white' }}/>
+              <XAxis dataKey="name" label={{ value: 'Month', position: 'bottom', fill:'#576675' }}/>
+              <YAxis label={{ value: 'lbs CO2', angle: -90, position: 'left', fill:'#576675' }}/>
               <Tooltip />
             </LineChart>
           </ResponsiveContainer>
           <br></br>
+          <p className='smaller'>(These are typical CO2 savings by switching from your gas guzzler to an EV)</p>
         </header>
       </div>
     </div>

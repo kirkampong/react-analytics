@@ -1,7 +1,6 @@
 import logo from 'assets/logo/tenet.png';
 import './About.css';
 import NavigationBar from 'components/Navbar/NavigationBar';
-import { Container } from 'react-bootstrap';
 
 function About() {
   return (

@@ -13,19 +13,27 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(8px + 2vmin);
-  color: white;
+  color: #576675;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.recharts-wrapper {
-  position: absolute !important;
+p.smaller {
+  font-size:small;
+}
+
+p.medium {
+  font-size: larger;
+}
+
+p.label {
+  font-size: medium;
 }

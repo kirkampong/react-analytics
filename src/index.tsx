@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path="localhost:3000/#/" element={<App />}/>
+        <Route path="localhost:3000/#/" element={<App />} />
         <Route path="localhost:3000/#/about" element={<About />} />
       </Routes>
     </HashRouter>

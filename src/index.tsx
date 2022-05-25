@@ -9,10 +9,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="/about" element={<About />} />
+        <Route path="localhost:3000/#/" element={<App />}/>
+        <Route path="localhost:3000/#/about" element={<About />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>,

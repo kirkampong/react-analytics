@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tenet-analytics/static/css/main.04c38fb8.css",
+    "main.js": "/tenet-analytics/static/js/main.78bf5dc5.js",
+    "static/js/787.af6d6cef.chunk.js": "/tenet-analytics/static/js/787.af6d6cef.chunk.js",
+    "static/media/tenet.png": "/tenet-analytics/static/media/tenet.0aa078f08c21a268dc01.png",
+    "index.html": "/tenet-analytics/index.html",
+    "main.04c38fb8.css.map": "/tenet-analytics/static/css/main.04c38fb8.css.map",
+    "main.78bf5dc5.js.map": "/tenet-analytics/static/js/main.78bf5dc5.js.map",
+    "787.af6d6cef.chunk.js.map": "/tenet-analytics/static/js/787.af6d6cef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04c38fb8.css",
+    "static/js/main.78bf5dc5.js"
+  ]
+}

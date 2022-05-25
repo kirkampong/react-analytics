@@ -25,11 +25,11 @@ function App() {
   const [inputsData, setInputsData] = useState([]);
   
   const fetchData = async () => {
-    const inputsResponse = await axios.get('http://localhost:3000/inputs')
+    const inputsResponse = await axios.get('http://localhost:3001/inputs')
       .then(resp => {setInputsData(resp.data);})
       .catch(err => {console.error(err);});
 
-    const tripsResponse = await axios.get('http://localhost:3000/trips')
+    const tripsResponse = await axios.get('http://localhost:3001/trips')
       .then(resp => {setTripsData(resp.data);})
       .catch(err => {console.error(err);});
   }

@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
+import About from 'views/About';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +12,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" caseSensitive={false} element={<App />} />
+      <Route path="/about" caseSensitive={false} element={<About />} />
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

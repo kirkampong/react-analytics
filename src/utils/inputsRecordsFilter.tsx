@@ -1,10 +1,10 @@
 class recordsFilterUtil {
   //Filters input to return record(s) based on the make/trip selected
-  static filterInputByTrip = (records, make) => {
+  static filterInputByTrip = (records: any[], make: string) => {
     switch(make.toLowerCase()) {
       case 'audi':
         //console.log(records);
-        return records.filter(record => {
+        return records.filter((record: { Make: string; Year: number; Series: string; Model: string; Style: string; }) => {
           return (
             record.Make.toLowerCase() === 'audi'
             && record.Year === 2020
@@ -14,7 +14,7 @@ class recordsFilterUtil {
           )
         });
       case 'tesla':
-        return records.filter(record => {
+        return records.filter((record: { Make: string; Year: number; Series: string; Model: string; Style: string; }) => {
           return (
             record.Make.toLowerCase() === 'tesla'
             && record.Year === 2020
@@ -24,7 +24,7 @@ class recordsFilterUtil {
           )
         });
       case 'volvo':
-        return records.filter(record => {
+        return records.filter((record: { Make: string; Year: number; Series: string; Model: string; Style: string; }) => {
           return (
             record.Make.toLowerCase() === 'volvo'
             && record.Year === 2021
@@ -34,7 +34,7 @@ class recordsFilterUtil {
           )
         });
       case 'toyota':
-        return records.filter(record => {
+        return records.filter((record: { Make: string; Year: number; Series: string; Model: string; Style: string; }) => {
           return (
             record.Make.toLowerCase() === 'toyota'
             && record.Year === 2014

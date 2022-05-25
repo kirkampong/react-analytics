@@ -1,7 +1,7 @@
 import { emissionsCalcUtil } from 'utils/emissionsCalculator';
 
 class chartDataUtil {
-  static chartData = (baseModel, record, tripData) => {
+  static chartData = (baseModel: any, record: any, tripData: { [x: string]: any; }) => {
     return (
       [
         {name: 'Jan', s:emissionsCalcUtil.calcSavings(baseModel, record, tripData['Jan'])},

@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import NavigationBar from 'components/Navbar/NavigationBar';
-import { Container } from 'react-bootstrap';
-//import { ResponsiveContainer } from 'components/ResponsiveContainer/ResponsiveChartContainer';
 import axios from "axios";
 import { 
   LineChart, 
@@ -65,14 +63,15 @@ function App() {
   const volvoChartData = chartDataUtil.chartData(baseModel, filterVolvo, volvoTrip);
   const toyotaChartData = chartDataUtil.chartData(baseModel, filterToyota, toyotaTrip);
 
-  const modelToChart = {
-    "Audi": audiChartData,
-    "Tesla": teslaChartData,
-    "Volvo": volvoChartData,
-    "Toyota": toyotaChartData
-  };
   
-  const handleModelSelect = (e) => {
+  const modelToChart: { [key: string]: any} = {}
+  modelToChart.Audi = audiChartData;
+  modelToChart.Tesla = teslaChartData;
+  modelToChart.Volvo = volvoChartData;
+  modelToChart.Toyota = toyotaChartData
+  
+  
+  const handleModelSelect = (e: { target: { innerHTML: any; }; }) => {
     const value = e.target.innerHTML;
     setSelectedModel(value)
   }
@@ -91,16 +90,16 @@ function App() {
               Select Model
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item onClick={(e)=>handleModelSelect(e)}>Audi</Dropdown.Item>
-              <Dropdown.Item onClick={(e)=>handleModelSelect(e)}>Tesla</Dropdown.Item>
-              <Dropdown.Item onClick={(e)=>handleModelSelect(e)}>Volvo</Dropdown.Item>
-              <Dropdown.Item onClick={(e)=>handleModelSelect(e)}>Toyota</Dropdown.Item>
+              <Dropdown.Item onClick={(e: any)=>handleModelSelect(e)}>Audi</Dropdown.Item>
+              <Dropdown.Item onClick={(e: any)=>handleModelSelect(e)}>Tesla</Dropdown.Item>
+              <Dropdown.Item onClick={(e: any)=>handleModelSelect(e)}>Volvo</Dropdown.Item>
+              <Dropdown.Item onClick={(e: any)=>handleModelSelect(e)}>Toyota</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <p>{selectedModel}</p>
           <br></br>
           <p className="label">Emissions savings over a year</p>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="90%" height={400}>
             <LineChart data={modelToChart[selectedModel]} margin={{ top: 5, right: 20, bottom: 25, left: 15 }}>
               <Line type="monotone" dataKey="s" stroke="#8884d8" />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />

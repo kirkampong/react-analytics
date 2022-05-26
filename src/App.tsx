@@ -20,7 +20,6 @@ import './App.css';
 
 function App() {
   const [selectedModel, setSelectedModel] = useState("Audi");
-  
   const [tripsData, setTripsData] = useState([]);
   const [inputsData, setInputsData] = useState([]);
   
@@ -40,7 +39,7 @@ function App() {
 
   if(!inputsData.length || !tripsData.length) {
     return (
-      <div className="container-fluid Spinner">
+      <div className="container-fluid Spinner" data-testid="loading-spinner" >
         <Spinner className="SpinnerStyle" animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
@@ -48,18 +47,23 @@ function App() {
     );
   }
 
+  // Base model record from inputs.csv (Audi Q7)
   const baseModel = inputsData[0];
 
+  // Filter inputs records to extract records(s) in inputs.csv matching the 
+  // specs of each model in trips.csv
   const filterAudi = recordsFilterUtil.filterInputByTrip(inputsData,'audi');
   const filterTesla = recordsFilterUtil.filterInputByTrip(inputsData,'tesla');
   const filterVolvo = recordsFilterUtil.filterInputByTrip(inputsData,'volvo');
   const filterToyota = recordsFilterUtil.filterInputByTrip(inputsData,'toyota');
-
+  
+  // Extract trips data by model
   const audiTrip = tripsData[0];
   const teslaTrip = tripsData[1];
   const volvoTrip = tripsData[2];
   const toyotaTrip = tripsData[3];
-
+  
+  // Calculate emissions savings and format data for recharts
   const audiChartData = chartDataUtil.chartData(baseModel, filterAudi, audiTrip);
   const teslaChartData = chartDataUtil.chartData(baseModel, filterTesla, teslaTrip);
   const volvoChartData = chartDataUtil.chartData(baseModel, filterVolvo, volvoTrip);
@@ -80,14 +84,14 @@ function App() {
 
   return (
     <div className="container-fluid">
-      <NavigationBar/>
+      <NavigationBar data-testid="navigation-bar" />
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className='medium'>Welcome to Tenet Analytics.</p> 
           <br></br>
           <p >Select your car model below to view emissions savings you can make by switching to an EV today.</p>
-          <Dropdown title="Select Model" id="basic-nav-dropdown">
+          <Dropdown title="Select Model" data-testid="dropdown-menu" >
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Select Model
             </Dropdown.Toggle>
@@ -101,7 +105,7 @@ function App() {
           <p>{selectedModel}</p>
           <br></br>
           <p className="label">Emissions savings over a year</p>
-          <ResponsiveContainer width="90%" height={400}>
+          <ResponsiveContainer width="90%" height={400} data-testid="chart-container" >
             <LineChart data={modelToChart[selectedModel]} margin={{ top: 5, right: 20, bottom: 25, left: 15 }}>
               <Line type="monotone" dataKey="s" stroke="#8884d8" />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />

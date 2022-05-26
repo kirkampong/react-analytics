@@ -1,9 +1,8 @@
 class recordsFilterUtil {
-  //Filters input to return record(s) based on the make/trip selected
+  // Filters input to return record(s) based on the model(trip) selected
   static filterInputByTrip = (records: any[], make: string) => {
     switch(make.toLowerCase()) {
       case 'audi':
-        //console.log(records);
         return records.filter((record: { Make: string; Year: number; Series: string; Model: string; Style: string; }) => {
           return (
             record.Make.toLowerCase() === 'audi'
@@ -46,7 +45,6 @@ class recordsFilterUtil {
       default:
         return records
     }
-
   }
 }
 

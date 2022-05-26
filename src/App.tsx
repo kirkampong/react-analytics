@@ -40,9 +40,11 @@ function App() {
 
   if(!inputsData.length || !tripsData.length) {
     return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+      <div className="container-fluid Spinner">
+        <Spinner className="SpinnerStyle" animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
     );
   }
 

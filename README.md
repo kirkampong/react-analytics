@@ -1,4 +1,4 @@
-# Tenet Analytics
+# Analytics Demo
 
 ### To run this project:
 1. Download the project
